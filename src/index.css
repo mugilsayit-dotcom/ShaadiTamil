@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===== SHAADITTAMIL DESIGN SYSTEM ===== */
+
+@layer base {
+  :root {
+    /* Core brand */
+    --background: 340 30% 99%;
+    --foreground: 340 15% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 15% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 15% 12%;
+
+    /* Primary: Deep pink */
+    --primary: 340 82% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Maroon */
+    --secondary: 336 60% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted: light blush */
+    --muted: 340 20% 96%;
+    --muted-foreground: 340 10% 50%;
+
+    /* Accent: Gold */
+    --accent: 45 90% 50%;
+    --accent-foreground: 340 15% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 20% 90%;
+    --input: 340 20% 90%;
+    --ring: 340 82% 52%;
+
+    --radius: 0.75rem;
+
+    /* Extended tokens */
+    --hero-gradient-from: 340 60% 97%;
+    --hero-gradient-to: 0 0% 100%;
+    --trust-bg: 340 30% 98%;
+    --section-alt: 340 15% 97%;
+    --gold: 45 90% 50%;
+    --gold-light: 45 90% 92%;
+    --maroon: 336 60% 35%;
+    --pink-light: 340 80% 96%;
+    --shadow-pink: 340 60% 70%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 340 82% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 340 20% 95%;
+    --sidebar-accent-foreground: 340 15% 12%;
+    --sidebar-border: 340 20% 90%;
+    --sidebar-ring: 340 82% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    text-wrap: balance;
+    line-height: 1.15;
+  }
+
+  p {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+}
+
+@layer utilities {
+  /* Typography */
+  .font-serif { font-family: 'Playfair Display', serif; }
+  .font-sans { font-family: 'Poppins', sans-serif; }
+
+  /* Shadows */
+  .shadow-brand {
+    box-shadow: 0 4px 24px 0 hsl(var(--shadow-pink) / 0.18);
+  }
+  .shadow-brand-lg {
+    box-shadow: 0 8px 40px 0 hsl(var(--shadow-pink) / 0.22);
+  }
+  .shadow-card {
+    box-shadow: 0 2px 16px 0 hsl(340 30% 40% / 0.1);
+  }
+  .shadow-card-hover {
+    box-shadow: 0 6px 30px 0 hsl(340 60% 50% / 0.18);
+  }
+
+  /* Gradients */
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(340 60% 97%) 0%, hsl(30 80% 97%) 50%, hsl(0 0% 100%) 100%);
+  }
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(45 90% 50%) 0%, hsl(38 90% 58%) 100%);
+  }
+  .gradient-card {
+    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(340 20% 99%) 100%);
+  }
+  .gradient-section {
+    background: linear-gradient(180deg, hsl(340 30% 99%) 0%, hsl(340 20% 96%) 100%);
+  }
+
+  /* Scroll reveal base */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    filter: blur(4px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(20px);
+    filter: blur(4px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
